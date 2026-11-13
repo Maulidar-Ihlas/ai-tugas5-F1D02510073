@@ -1,0 +1,83 @@
+{
+  "judul": "Sistem Pakar Penilaian Risiko dan Kesiapsiagaan Bencana Banjir & Tanah Longsor",
+  "batas": "Aturan pada sistem pakar ini disusun berdasarkan panduan kesiapsiagaan bencana resmi dari Ready.gov (FEMA/U.S. Department of Homeland Security) dan U.S. Geological Survey (USGS) untuk kondisi cuaca ekstrem dan tanda visual lingkungan sekitar permukiman. Sistem ini tidak menggantikan peringatan dini resmi dari BMKG/BPBD maupun analisis geoteknik lapangan. Hasil yang ditampilkan merupakan panduan kesiapsiagaan awal, bukan keputusan evakuasi akhir.",
+  "sumber": {
+    "S1": "Floods, Ready.gov (U.S. Department of Homeland Security / FEMA), https://www.ready.gov/floods, diakses 13 Nov 2026",
+    "S2": "Landslides & Debris Flow, Ready.gov (U.S. Department of Homeland Security / FEMA), https://www.ready.gov/landslides-debris-flow, diakses 13 Nov 2026",
+    "S3": "Landslide Preparedness, U.S. Geological Survey (USGS), https://www.usgs.gov/programs/landslide-hazards/landslide-preparedness, diakses 13 Nov 2026"
+  },
+  "tindakan": {
+    "Siaga Banjir dan Banjir Bandang (Segera Evakuasi ke Tempat Tinggi)": "Segera pindah ke lantai atas atau dataran tinggi, matikan aliran listrik utama jika aman dilakukan, dan ikuti instruksi evakuasi BPBD setempat.",
+    "Bahaya Tanah Longsor dan Aliran Runtuhan (Debris Flow)": "Segera menjauh dari jalur lintasan lereng dan tebing curam menuju area datar yang stabil, serta waspadai longsor susulan.",
+    "Peringatan Dini Aliran Bandang Lumpur Hulu (Wajib Menjauh dari Lembah Sungai)": "Jangan menunggu air meluap; segera tinggalkan bantaran sungai atau lembah karena aliran debris bergerak jauh lebih cepat daripada banjir biasa.",
+    "Larangan Melintasi Arus Banjir (Terapkan Prinsip Turn Around, Don't Drown)": "Berbalik arah dan cari rute aman. Arus air setinggi 15 cm dapat menjatuhkan orang dewasa, dan arus 30 cm dapat menghanyutkan kendaraan."
+  },
+  "aturan": [
+    {
+      "id": "R1",
+      "jika": [
+        "curah hujan lebat berlangsung lama",
+        "permukiman berada di dataran rendah atau dekat aliran sungai"
+      ],
+      "mode": "dan",
+      "maka": "potensi luapan air dan genangan tinggi",
+      "jenis": "antara",
+      "sumber": "S1"
+    },
+    {
+      "id": "R2",
+      "jika": [
+        "potensi luapan air dan genangan tinggi",
+        "air sungai atau saluran drainase mulai meluap ke jalan"
+      ],
+      "mode": "dan",
+      "maka": "Siaga Banjir dan Banjir Bandang (Segera Evakuasi ke Tempat Tinggi)",
+      "jenis": "kesimpulan",
+      "sumber": "S1"
+    },
+    {
+      "id": "R3",
+      "jika": [
+        "muncul retakan baru pada tanah atau dinding bangunan",
+        "pohon, tiang listrik, atau pagar mulai tampak miring"
+      ],
+      "mode": "atau",
+      "maka": "indikasi awal pergerakan tanah pada lereng",
+      "jenis": "antara",
+      "sumber": "S2"
+    },
+    {
+      "id": "R4",
+      "jika": [
+        "indikasi awal pergerakan tanah pada lereng",
+        "lokasi berada di lereng curam dan diguyur hujan deras"
+      ],
+      "mode": "dan",
+      "maka": "Bahaya Tanah Longsor dan Aliran Runtuhan (Debris Flow)",
+      "jenis": "kesimpulan",
+      "sumber": "S3"
+    },
+    {
+      "id": "R5",
+      "jika": [
+        "air sungai mendadak keruh berlumpur saat hujan di hulu",
+        "terdengar suara gemuruh yang semakin keras dari arah bukit"
+      ],
+      "mode": "atau",
+      "maka": "Peringatan Dini Aliran Bandang Lumpur Hulu (Wajib Menjauh dari Lembah Sungai)",
+      "jenis": "kesimpulan",
+      "sumber": "S3"
+    },
+    {
+      "id": "R6",
+      "jika": [
+        "jalan di depan rumah tergenang arus air deras",
+        "pengguna berencana melintasi genangan dengan berjalan kaki atau berkendara"
+      ],
+      "mode": "dan",
+      "maka": "Larangan Melintasi Arus Banjir (Terapkan Prinsip Turn Around, Don't Drown)",
+      "jenis": "kesimpulan",
+      "sumber": "S1"
+    }
+  ]
+}
